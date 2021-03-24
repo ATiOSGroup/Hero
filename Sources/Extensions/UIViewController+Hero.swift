@@ -295,7 +295,9 @@ public extension HeroExtension where Base: UIViewController {
           }
         }
 
-        toVC.dismiss(animated: true, completion: nil)
+        toVC.dismiss(animated: true, completion: {
+            Hero.shared.fromViewController = nil
+        })
       } else {
         _ = target.navigationController?.popToViewController(target, animated: true)
       }
